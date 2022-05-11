@@ -35,7 +35,7 @@ jobs:
             README.md
           )
 
-          test -d examples2 || echo "[WARN] Missing ./examples in modules directory, we strongly recommend you to provide example usage of this module."
+          test -d examples || echo "[WARN] Missing ./examples in modules directory, we strongly recommend you to provide example usage of this module."
 
           for i in ${files[@]} ; do
             fileCount=$(find ./ -name $i | wc -l)
@@ -53,7 +53,7 @@ jobs:
 
       - name: Terraform Format Check
         run: |
-          result=$(terraform fmt -write=false -recursive)
+          result=$(terraform fmt -diff -check -recursive)
 
           if [[ $result != "" ]]; then
             echo "[ERROR] You have unformatted .tf files:\n\n$result \n\nPlease run the command `terraform fmt -recursive` first."
