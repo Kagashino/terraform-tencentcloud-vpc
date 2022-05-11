@@ -53,9 +53,4 @@ jobs:
 
       - name: Terraform Format Check
         run: |
-          result=$(terraform fmt -diff -check -recursive)
-
-          if [[ $result != "" ]]; then
-            echo "[ERROR] You have unformatted .tf files:\n\n$result \n\nPlease run the command `terraform fmt -recursive` first."
-            exit -1
-          fi
+          terraform fmt -diff -check -recursive
