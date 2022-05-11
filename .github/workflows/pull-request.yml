@@ -47,7 +47,9 @@ jobs:
             fi
           done
       - name: Terraform Validate
-        run: terraform validate
+        run: |
+          terraform init
+          terraform validate
 
       - name: Terraform Format Check
         run: |
