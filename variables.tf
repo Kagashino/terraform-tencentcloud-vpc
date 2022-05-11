@@ -57,7 +57,7 @@ variable "subnet_name" {
 }
 
 variable "subnet_cidrs" {
-  description  = "Specify the subnet cidr blocks when 'vpc_id' is not specified."
+  description = "Specify the subnet cidr blocks when 'vpc_id' is not specified."
   type        = list(string)
   default     = []
 }
