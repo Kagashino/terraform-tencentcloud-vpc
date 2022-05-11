@@ -21,6 +21,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - uses: hashicorp/setup-terraform@v1
 
       # Runs a set of commands using the runners shell
       - name: Module Files Checking
@@ -46,11 +47,9 @@ jobs:
             fi
           done
       - name: Terraform Validate
-        uses: hashicorp/setup-terraform@v1
         run: terraform validate
 
       - name: Terraform Format Check
-        uses: hashicorp/setup-terraform@v1
         run: |
           result=$(terraform fmt -write=false -recursive)
 
