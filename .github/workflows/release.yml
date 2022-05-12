@@ -5,7 +5,7 @@ name: Release
 # Controls when the workflow will run
 on:
   push:
-    branches: [ master ]
+    branches: *
     tags:
 
   # Allows you to run this workflow manually from the Actions tab
@@ -21,6 +21,6 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Invoke Webhook
-          uses: distributhor/workflow-webhook@v2
-          env:
-            webhook_url: ${{ secrets.WEBHOOK_URL }}
+        uses: distributhor/workflow-webhook@v2
+        env:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
