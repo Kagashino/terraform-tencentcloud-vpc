@@ -2,7 +2,7 @@
 
 ## terraform-tencentcloud-vpc
 
-A terraform module used to create TencentCloud VPC, subnet and route entry.
+A terraform module used for create TencentCloud VPC, subnet and route entry.
 
 The following resources are included.
 
